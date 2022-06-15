@@ -14,7 +14,8 @@ const chartRef = ref(null);
 // const chartConfigs = ChartIQRenderer.getChartConfig(chartRefKey);
 
 onMounted(() => {
-  const $chartRef = chartRef.value!;
+  // FIXME: 빌드하면 ref를 못찾음??
+  const $chartRef = chartRef.value! ?? document.getElementById(chartRefKey);
 
   console.log({ $chartRef });
 
@@ -68,7 +69,7 @@ function dialogPortalized(el: Element) {
 <template>
   <main>
     <h2>ChartContainer</h2>
-    <cq-context :ref="chartRefKey">
+    <cq-context :ref="chartRefKey" :id="chartRefKey">
       <div class="ciq-chart-area" role="main">
         <div class="ciq-chart">
           <cq-recent-symbols>
