@@ -12,23 +12,28 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@latest
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@latest
         with:
           node-version: '16'
           registry-url: https://registry.npmjs.org/
 
-      - name: Deploy to Vercel
+      - name: Check installing dependencies
         run: |
-          prodRun=""
-          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
-            prodRun="--prod"
-          fi
-          npx vercel --token ${VERCEL_TOKEN} $prodRun
+          ls -al
+          yarn install "git+https://github.com/gitgitWi/chartiq-8.6.0.git"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      # - name: Deploy to Vercel
+      #   run: |
+      #     prodRun=""
+      #     if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
+      #       prodRun="--prod"
+      #     fi
+      #     npx vercel --token ${VERCEL_TOKEN} $prodRun
+      #   env:
+      #     VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      #     VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      #     VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
