@@ -23,7 +23,7 @@ jobs:
       - name: Check installing dependencies
         run: |
           ls -al
-          git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github".insteadOf https://github
+          gh auth login --with-token ${GITHUB_TOKEN}
           yarn add "git+https://github.com/gitgitWi/chartiq-8.6.0"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
