@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "chartiq": "git+https://${GITHUB_TOKEN}:x-oauth-basic@github.com/gitgitWi/chartiq-8.6.0.git",
+    "chartiq": "git+https://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:x-oauth-basic@github.com/gitgitWi/chartiq-8.6.0.git",
     "sass": "^1.52.3",
     "vue": "^3.2.25"
   },

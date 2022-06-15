@@ -378,9 +378,9 @@ chalk@^4.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-"chartiq@git+https://github.com/gitgitWi/chartiq-8.6.0":
+"chartiq@git+https://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:x-oauth-basic@github.com/gitgitWi/chartiq-8.6.0.git":
   version "8.6.0"
-  resolved "git+https://github.com/gitgitWi/chartiq-8.6.0#3a56758d0b907f0058728219a82a585f166a61be"
+  resolved "git+https://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:x-oauth-basic@github.com/gitgitWi/chartiq-8.6.0.git#3a56758d0b907f0058728219a82a585f166a61be"
 
 "chokidar@>=3.0.0 <4.0.0":
   version "3.5.3"
