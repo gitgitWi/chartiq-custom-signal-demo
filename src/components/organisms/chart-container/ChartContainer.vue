@@ -15,6 +15,9 @@ const chartRef = ref(null);
 
 onMounted(() => {
   const $chartRef = chartRef.value!;
+
+  console.log({ $chartRef });
+
   Fetch.getInstance()
     .getMockHistory('005930')
     .then((res) => {
