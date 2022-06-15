@@ -24,7 +24,7 @@ jobs:
         run: |
           ls -al
           git config --global url."https://${{ secrets.GITHUB_TOKEN }}@github".insteadOf https://github
-          yarn add "git+https://github.com/gitgitWi/chartiq-8.6.0.git"
+          yarn add "git+https://github.com/gitgitWi/chartiq-8.6.0"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       # - name: Deploy to Vercel
