@@ -3,6 +3,8 @@ import { ref, onMounted } from 'vue';
 
 import { chartContainerId } from '../../../constants';
 import { ChartIQRenderer } from '../../../services/chart';
+import { Fetch } from '../../../services/fetch';
+
 import type { ApiHistory, CiqHistory } from './interfaces';
 
 const chartRenderer = ChartIQRenderer.getInstance();
@@ -13,10 +15,8 @@ const chartRef = ref(null);
 
 onMounted(() => {
   const $chartRef = chartRef.value!;
-  fetch(
-    'https://xrlkcpfarp7azb3m6fse22mbbe0nuorf.lambda-url.ap-northeast-2.on.aws/prices/domestic/005930?period=day'
-  )
-    .then((res) => res.json())
+  Fetch.getInstance()
+    .getMockHistory('005930')
     .then((res) => {
       chartRenderer.setContainer($chartRef).setData(res.results.map(refineApiToCiq), '삼성전자');
     });
