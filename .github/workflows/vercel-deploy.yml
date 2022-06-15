@@ -23,7 +23,7 @@ jobs:
       - name: Check installing dependencies
         run: |
           ls -al
-          yarn install "git+https://github.com/gitgitWi/chartiq-8.6.0.git"
+          yarn add "git+https://github.com/gitgitWi/chartiq-8.6.0.git"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       # - name: Deploy to Vercel
